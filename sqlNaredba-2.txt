@@ -1,0 +1,36 @@
+drop database if exists blog;
+create database blog;
+use blog;
+
+CREATE TABLE users (
+    id int AUTO_INCREMENT unique,
+    first_name varchar(30) NOT NULL,
+    last_name varchar(30) NOT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE posts (
+    id int AUTO_INCREMENT,
+    title varchar(30) NOT NULL,
+    body text,
+    user_id int NOT NULL,
+    created_at date,
+    PRIMARY KEY (id)
+    
+);
+
+
+CREATE TABLE comments (
+    id int AUTO_INCREMENT,
+    author varchar(30),
+    text text,
+    post_id int NOT NULL,
+    PRIMARY KEY (id)
+);
+INSERT INTO posts (Title, body, user_id, created_at) VALUES ('Bla bla blog', 'Boooring content of bloggg', 103, '2019-07-30');
+INSERT INTO posts (Title, body, user_id, created_at) VALUES ('Naslov bloga', 'Not so smart content', 102, '2018-05-27');
+INSERT INTO posts (Title, body, user_id, created_at) VALUES ('Title of blog', 'Some other content', 101, '2017-03-17');
+
+INSERT INTO comments (author, text, post_id) VALUES ('Bloger', 'Boooring and stupid', 1);
+INSERT INTO comments (author, text, post_id) VALUES ('Blogerka wannabee', 'Super ti je ovaj blog mislim', 2);
+INSERT INTO comments (author, text, post_id) VALUES ('Srbin', 'A dje su tu teme o nama Srbima?', 3);
